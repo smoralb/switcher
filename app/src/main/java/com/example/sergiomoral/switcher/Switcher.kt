@@ -1,12 +1,12 @@
 package com.example.sergiomoral.switcher
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import android.app.Application
+import org.koin.android.ext.android.startKoin
 
-class Switcher : AppCompatActivity() {
+class Switcher : Application() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_switcher)
+    override fun onCreate() {
+        super.onCreate()
+        startKoin(this, listOf(myAppModules))
     }
 }
